@@ -1,0 +1,7 @@
+version: '3'
+services:
+  app:
+    build: ./docker/php
+    container_name: skillup_php
+    volumes:
+      - ./:/var/www
