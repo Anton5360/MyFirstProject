@@ -1,29 +1,4 @@
 <?php
-
-//PHP_EOL
-
-/*$menu = [
-    'title' => 'Samples',
-    'children' => [
-    [
-        'url' => '/',
-        'title' => 'Home',
-    ],
-    [
-        'url' => '/samples/arrays.php',
-        'title' => 'Arrays',
-    ],
-    [
-        'url' => '/samples/basics.php',
-        'title' => 'Basics',
-    ],
-    [
-        'url' => '/samples/branching.php',
-        'title' => 'Branching',
-    ],
-        ]
-];*/
-
 $taskManager = [
     [
         'taskID' => '1',
