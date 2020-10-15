@@ -1,0 +1,26 @@
+table {
+    font-family: sans-serif;
+    font-size: 13px;
+    text-align: center;
+    background-color: #9ABEE1;
+    border: 20px solid #9ABEE1;
+    border-radius: 10px;
+    border-spacing: 5px;
+    border-collapse: separate;
+}
+.main {
+    font-size: 18px;
+    padding: 8px;
+    background-color: #fff93e;
+}
+.submain {
+    font-size: 15px;
+    padding: 4px;
+    background-color: #fff69a;
+    empty-cells: hide;
+}
+td {
+    background-color: #E17F61;
+    padding: 10px;
+    color: #000;
+}
