@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../samples/style.css">
     <title>Homework</title>
 </head>
 <body>
@@ -79,20 +79,18 @@ $taskManager = [
         <th class="submain">year</th>
         <th class="submain"></th>
     </tr>
-        <?php
-        foreach ($taskManager as $task) {
-            echo "<tr>
-            <td>{$task['taskID']}</td><td>{$task['taskTitle']}</td>
-            <td>{$task['taskOwner']['name']}</td><td>{$task['taskOwner']['surname']}</td><td>{$task['taskOwner']['age']}</td>
-            <td>{$task['taskDescription']}</td><td>{$task['taskDeadline']['day']}</td><td>{$task['taskDeadline']['month']}</td>
-            <td>{$task['taskDeadline']['year']}</td><td>{$task['taskStatus']}</td>
+    <?php
+    for($i = 0;$i < (array_key_last($taskManager)+1); $i++) {
+        echo "<tr>
+            <td>{$taskManager[$i]['taskID']}</td><td>{$taskManager[$i]['taskTitle']}</td>
+            <td>{$taskManager[$i]['taskOwner']['name']}</td><td>{$taskManager[$i]['taskOwner']['surname']}</td>
+            <td>{$taskManager[$i]['taskOwner']['age']}</td><td>{$taskManager[$i]['taskDescription']}</td>
+            <td>{$taskManager[$i]['taskDeadline']['day']}</td><td>{$taskManager[$i]['taskDeadline']['month']}</td>
+            <td>{$taskManager[$i]['taskDeadline']['year']}</td><td>{$taskManager[$i]['taskStatus']}</td>
             </tr>";
-        }
-        ?>
+    }
+    ?>
 </table>
 
 </body>
 </html>
-
-
-
