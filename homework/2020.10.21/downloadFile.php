@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ALL);
+
+require_once __DIR__ . '/security.php';
+
 $actualInsideRout = trim($_GET['rout'] ?? null, " \t\n\r\0\x0B/");
 if(!$actualInsideRout){
     exit('Rout is required');

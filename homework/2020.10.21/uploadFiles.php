@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ALL);
+
+require_once __DIR__ . '/security.php';
+
 $config = require __DIR__ . '/config.php';
 $baseDir = $config['baseDir'];
 

@@ -1,5 +1,10 @@
 <?php
+error_reporting(E_ALL);
+
+require_once __DIR__ . '/security.php';
+
 $config = require __DIR__ . '/config.php';
+
 $rout = $_GET['rout'] ?? '';
 $webRout = $config['webRout'];
 $baseDir = $config['baseDir'];
@@ -61,6 +66,7 @@ $explodeActualInsideRout = explode('/', $actualInsideRout);
     <title>Document</title>
 </head>
 <body>
+<a href="signOut.php" style="float: right; font-size: 18px;">Sign out</a>
 <table border="1" width="100%" cellpadding="20">
     <tr>
         <td valign="top" width="25%">

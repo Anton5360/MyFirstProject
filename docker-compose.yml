@@ -18,7 +18,7 @@ services:
   db:
     image: mysql
     ports:
-      - 3306:3306
+      - 33060:33060
     container_name: skillup_mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
@@ -27,3 +27,9 @@ services:
       MYSQL_USER: skillup_user
       MYSQL_PASSWORD: skillup_pwd
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
+  composer:
+    restart: 'no'
+    image: composer/composer:1.10.17
+    command: install
+    volumes:
+      - ./:/var/www
