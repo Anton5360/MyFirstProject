@@ -1,7 +1,7 @@
 <?php
 
 
-namespace components;
+namespace app\components;
 
 use helpers\StringHelper;
 
