@@ -34,7 +34,7 @@ services:
   yii2_db:
     image: mysql
     ports:
-      - 3308:3306
+      - 3307:3307
     container_name: yii2_mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
