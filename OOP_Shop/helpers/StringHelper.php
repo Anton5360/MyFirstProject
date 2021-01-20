@@ -1,7 +1,7 @@
 <?php
 
 
-namespace helpers;
+namespace app\helpers;
 
 
 class StringHelper
