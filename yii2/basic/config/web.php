@@ -15,6 +15,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@storage' => __DIR__ . '/../storage',
     ],
     'components' => [
         'authManager' => require __DIR__ . '/authManager.php',
@@ -51,7 +52,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/' => 'users/index',
+                '/' => '/shop/default/index',
+                'logout' => '/site/logout',
+                'login' => '/site/login',
+                'registration' => '/site/registration',
             ],
         ],
         'language' => LanguageComponent::class,
@@ -59,20 +63,16 @@ $config = [
     'modules' => [
         'access' => [
             'class' => \mdm\admin\Module::class,
-//            'layout' => 'left-menu',
-        ]
+        ],
+        'shop' => [
+            'class' => \app\modules\ShopModule::class,
+        ],
     ],
     'as access' => [
         'class' => \mdm\admin\components\AccessControl::class,
         'allowActions' => [
             'site/*',
             'access/*',
-            //'some-controller/some-action',
-            // The actions listed here will be allowed to everyone including guests.
-            // So, 'admin/*' should not appear here in the production, of course.
-            // But in the earlier stages of your development, you may probably want to
-            // add a lot of actions here until you finally completed setting up rbac,
-            // otherwise you may not even take a first step.
         ],
     ],
     'params' => $params,
@@ -82,7 +82,6 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => yii\debug\Module::class,
-        // uncomment the following to add your IP if you are not connecting from localhost.
         'allowedIPs' => ['*'],
     ];
 

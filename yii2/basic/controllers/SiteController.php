@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\components\RBAC;
 use app\components\traits\GetLanguageComponentTrait;
 use app\models\forms\ChangeLanguageForm;
 use app\models\forms\RegistrationForm;
+use Exception;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -80,6 +82,10 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * @return string|Response
+     * @throws Exception
+     */
     public function actionRegistration()
     {
         $this->view->title = 'Registration';
@@ -88,6 +94,7 @@ class SiteController extends Controller
         $model = new RegistrationForm();
 
         if($model->load($this->request->post()) && $model->save()){
+            (new RBAC())->giveRoleToUser();
             return $this->redirect(['/site/login']);
         }
 
@@ -121,7 +128,7 @@ class SiteController extends Controller
 
         $languageComponent->setLanguage($model->language);
 
-        return $this->redirect($post['ChangeLanguageForm']['currentUrl']);
+        return $this->redirect($model->currentUrl);
     }
 
 

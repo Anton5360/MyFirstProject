@@ -1,9 +1,12 @@
 <?php
 
-/* @var $this View */
-/* @var $content string */
+/**
+ * @var View $this
+ * @var string $content
+ */
 
 use app\widgets\Alert;
+use app\widgets\Cart;
 use app\widgets\ChangeLanguage;
 use mdm\admin\components\MenuHelper;
 use yii\bootstrap\Html as HtmlBootstrap;
@@ -43,9 +46,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            HtmlBootstrap::tag('li', Cart::widget()),
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -85,7 +86,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Skill UP courses <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
